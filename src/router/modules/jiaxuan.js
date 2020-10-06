@@ -23,6 +23,12 @@ export default [
     component: _import('jiaxuan/left-delete'),
    
   },
+  {
+    path : '/configureDetail',
+    name: '配置详情',
+    component: _import('jiaxuan/configure-detail'),
+   
+  }
   
 ]
 
