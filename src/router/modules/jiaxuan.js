@@ -28,6 +28,12 @@ export default [
     name: '配置详情',
     component: _import('jiaxuan/configure-detail'),
    
+  },
+  {
+    path : '/pkDetail',
+    name: '对比详情',
+    component: _import('jiaxuan/pk-detail'),
+   
   }
   
 ]

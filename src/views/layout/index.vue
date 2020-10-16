@@ -25,7 +25,9 @@ export default {
     goTwoLayout(){
        this.$router.push("twoCols");
 
-    }
+    },
+  
+
   }
 };
 </script>

@@ -5,9 +5,10 @@ import router from './router';
 import store from "./store";
 
 
-import { Button } from 'mint-ui'
+import { Button, Switch } from 'mint-ui'
 
-Vue.component(Button.name, Button)
+Vue.component(Button.name, Button);
+Vue.component(Switch.name, Switch);
 
 
 

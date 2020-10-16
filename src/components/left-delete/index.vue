@@ -174,15 +174,17 @@ export default {
                         vm.offset = -vm.delAreaWidth
                         vm.closeOther.call(vm, el)
                         vm.$emit('slip-open', vm)
-                    } else if (
-                        diffX > 0 && diffX > 10 ||
-                        diffX < 0 && diffX > -10
-                    ) {
-                        //排除偶尔出现的左滑到一半 卡住不动的情况
-                        //diffX 大于10 才处理 防止click事件透穿
-                        vm.open = false
-                        vm.offset = 0
-                    }
+                    } 
+                    // else if (
+                    //     diffX > 0 && diffX > 10 ||
+                    //     diffX < 0 && diffX > -10
+                    // ) {
+                    //     //排除偶尔出现的左滑到一半 卡住不动的情况
+                    //     //diffX 大于10 才处理 防止click事件透穿
+                     //这个是做家选项目的时候出现的特殊bug，做其他项目时可以先不写这步
+                    //     vm.open = false
+                    //     vm.offset = 0
+                    // }
                     vm.sliderAngle = '';
                 });
                 document.addEventListener("scroll", () => {
