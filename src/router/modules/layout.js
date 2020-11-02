@@ -19,7 +19,13 @@ export default [
     path: '/twoCols',
     name: '两列自适应布局',
     component: _import('layout/two-cols')
+  },
+  {
+    path: '/border',
+    name: '移动端1px',
+    component: _import('layout/border')
   }
+
 
   
 ]

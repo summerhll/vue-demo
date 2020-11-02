@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "styles/common.less";
+// @import "styles/common.less";  //引入公共css文件
 </style>

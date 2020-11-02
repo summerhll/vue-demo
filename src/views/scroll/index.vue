@@ -1,13 +1,10 @@
 <template>
   <div class = "wrap">
     <div class= "box">
-     <mt-button type="default" size="large" @click="goThreeLayout">三列布局</mt-button>
+     <mt-button type="default" size="large" @click="goNoScroll">body无滚动 + 弹层无滚动</mt-button>
      </div>
       <div class= "box">
      <mt-button type="default" size="large" @click="goTwoLayout">两列自适应布局</mt-button>
-      </div>
-       <div class= "box">
-     <mt-button type="default" size="large" @click="goBorder">1px</mt-button>
       </div>
   </div>
 </template>
@@ -21,16 +18,14 @@ export default {
   },
 
   methods: {
-    goThreeLayout() {
-      this.$router.push("threeCols");
+    goNoScroll() {
+      this.$router.push("noScroll");
     },
 
     goTwoLayout(){
        this.$router.push("twoCols");
+
     },
-    goBorder(){
-      this.$router.push("border");
-    }
   
 
   }
