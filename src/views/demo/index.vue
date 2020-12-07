@@ -1,45 +1,50 @@
 <template>
-  <div id="home">
-   首页
+  <div class="wrap">
+    <mt-button size="small" @click="goKeyIndex">使用index当key</mt-button>
+    <mt-button size="small" @click="goTransitionKey">transition使用key</mt-button>
+    <mt-button size="small" @click="goRouteChilden">嵌套路由</mt-button>
+    <mt-button size="small" @click="goRouteChildenTab">tab 嵌套路由</mt-button>
+    <mt-button size="small" @click="goTab">tab v-show</mt-button>
   </div>
 </template>
 
 <script>
-//import child from '../../components/child'
 export default {
-  name: 'parent',
-  components: {
-   // child
-  },
-   data(){
-     return {
-        message: 'Hello',
-         items: [
-            { message: 'Foo' },
-            { message: 'Bar' }
-          ]
+  name: "jiaxuan",
 
-     }
-   },
-  computed: {
-    // 计算属性的 getter
-    reversedMessage(){
-      // `this` 指向 vm 实例
-      return this.message.split('').reverse().join('')
-    }
+  data() {
+    return {};
   },
 
-   watch: {
-    // 如果 `message` 发生改变，这个函数就会运行
-    message(newValue, oldValue) {
-         console.log( "watch reversedMessage ..." + oldValue +  '->' + newValue);
-    }
-  },
-
-  created() {
-    this.message = '111';
-    console.log('I am parents created');
-  },
+  methods: {
  
-}
+
+    goKeyIndex() {
+      this.$router.push("demo/key");
+    },
+    goTransitionKey(){
+       this.$router.push("demo/transition-key");
+    },
+    goRouteChilden(){
+       this.$router.push("demo/route-children");
+    },
+     goRouteChildenTab(){
+       this.$router.push("demo/route-children-tab");
+    },
+
+    goTab(){
+       this.$router.push("demo/tab");
+    }
+  }
+};
 </script>
+<style lang = "less" scoped>
+.wrap {
+ margin: 0 0.15rem;
+ .mint-button{
+    margin:  0.15rem;
+
+ }
+}
+
+</style>

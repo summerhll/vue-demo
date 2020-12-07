@@ -58,7 +58,7 @@ export default {
   }
 };
 </script>
-<style lang = "less">
+<style lang = "less" scoped>
 /*
  * @Author: @Guojufeng 
  * @Date: 2019-03-15 09:22:19 

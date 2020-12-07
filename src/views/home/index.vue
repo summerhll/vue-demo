@@ -1,8 +1,9 @@
 <template>
   <div id="home">
-    <mt-button type="default" size="large" @click="goLayout" class = "box"> 布局</mt-button>
-     <mt-button type="default" size="large" @click="goJiaXuan" class = "box">家选</mt-button>
-      <mt-button type="default" size="large" @click="goScroll" class = "box">滚动透传</mt-button>
+     <mt-button size="large" @click="goDemo" class = "box"> demo</mt-button>
+    <mt-button size="large" @click="goLayout" class = "box"> 布局</mt-button>
+     <mt-button size="large" @click="goJiaXuan" class = "box">家选</mt-button>
+      <mt-button size="large" @click="goScroll" class = "box">滚动透传</mt-button>
   </div>
 </template>
 
@@ -156,6 +157,10 @@ export default {
   },
 
   methods: {
+    goDemo(){
+      this.$router.push("demo")
+
+    },
     goLayout() {
       this.$router.push("layout");
     },
