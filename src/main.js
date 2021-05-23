@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import router from './router';
 import store from "./store";
-import { Button, Switch } from 'mint-ui'
+import { Button, Switch } from 'vant'
 //import filters from "./utils/filters";
 import directives from "./utils/directives";
 

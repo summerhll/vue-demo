@@ -1,10 +1,10 @@
 <template>
   <div class = "wrap">
     <div class= "box">
-     <mt-button type="default" size="large" @click="goNoScroll">body无滚动 + 弹层无滚动</mt-button>
+     <van-button type="default" size="large" @click="goNoScroll">body无滚动 + 弹层无滚动</van-button>
      </div>
       <div class= "box">
-     <mt-button type="default" size="large" @click="goTwoLayout">两列自适应布局</mt-button>
+     <van-button type="default" size="large" @click="goTwoLayout">两列自适应布局</van-button>
       </div>
   </div>
 </template>

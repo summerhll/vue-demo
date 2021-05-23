@@ -1,18 +1,18 @@
 <template>
   <div class="wrap">
     <div class="box">
-      <mt-button type="default" size="large" @click="goSlider">轮播</mt-button>
+      <van-button type="default" size="large" @click="goSlider">轮播</van-button>
     </div>
 
     <div class="box">
-      <mt-button type="default" size="large" @click="goLeftDelete">左滑删除</mt-button>
+      <van-button type="default" size="large" @click="goLeftDelete">左滑删除</van-button>
     </div>
 
     <div class="box">
-      <mt-button type="default" size="large" @click="goConfigureDetail">配置详情</mt-button>
+      <van-button type="default" size="large" @click="goConfigureDetail">配置详情</van-button>
     </div>
     <div class="box">
-      <mt-button type="default" size="large" @click="goPkDetail">对比详情</mt-button>
+      <van-button type="default" size="large" @click="goPkDetail">对比详情</van-button>
     </div>
   </div>
 </template>

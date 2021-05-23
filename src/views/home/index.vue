@@ -1,9 +1,9 @@
 <template>
   <div id="home">
-     <mt-button size="large" @click="goDemo" class = "box"> demo</mt-button>
-    <mt-button size="large" @click="goLayout" class = "box"> 布局</mt-button>
-     <mt-button size="large" @click="goJiaXuan" class = "box">家选</mt-button>
-      <mt-button size="large" @click="goScroll" class = "box">滚动透传</mt-button>
+     <van-button  plain type="primary"  @click="goDemo" class = "box"> demo</van-button>
+     <van-button plain type="primary" @click="goLayout" class = "box"> 布局</van-button>
+     <van-button  plain type="primary" @click="goJiaXuan" class = "box">家选</van-button>
+     <van-button plain type="primary" @click="goScroll" class = "box">滚动透传</van-button>
   </div>
 </template>
 

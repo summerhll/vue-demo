@@ -1,10 +1,11 @@
 <template>
   <div class="wrap">
-    <mt-button size="small" @click="goKeyIndex">使用index当key</mt-button>
-    <mt-button size="small" @click="goTransitionKey">transition使用key</mt-button>
-    <mt-button size="small" @click="goRouteChilden">嵌套路由</mt-button>
-    <mt-button size="small" @click="goRouteChildenTab">tab 嵌套路由</mt-button>
-    <mt-button size="small" @click="goTab">tab v-show</mt-button>
+    <van-button  plain hairline type="info"  @click="goKeyIndex">使用index当key</van-button>
+    <van-button  plain hairline type="info" @click="goTransitionKey">transition使用key</van-button>
+    <van-button  plain hairline type="info" @click="goRouteChilden">嵌套路由（不设置默认页面）</van-button>
+    <van-button  plain hairline type="info" @click="goRouteChildenTab">tab 嵌套路由（设置默认页面）</van-button>
+    <van-button  plain hairline type="info" @click="goTab">tab v-show</van-button>
+     <van-button  plain hairline type="info" @click="goModal">显示弹窗</van-button>
   </div>
 </template>
 
@@ -34,6 +35,9 @@ export default {
 
     goTab(){
        this.$router.push("demo/tab");
+    },
+    goModal(){
+       this.$router.push("demo/modal");
     }
   }
 };
