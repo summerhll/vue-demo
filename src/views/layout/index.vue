@@ -1,13 +1,13 @@
 <template>
   <div class = "wrap">
     <div class= "box">
-     <mt-button type="default" size="large" @click="goThreeLayout">三列布局</mt-button>
+     <van-button  plain hairline type="info"  @click="goThreeLayout">三列布局</van-button>
      </div>
       <div class= "box">
-     <mt-button type="default" size="large" @click="goTwoLayout">两列自适应布局</mt-button>
+     <van-button  plain hairline type="info" @click="goTwoLayout">两列自适应布局</van-button>
       </div>
        <div class= "box">
-     <mt-button type="default" size="large" @click="goBorder">1px</mt-button>
+     <van-button  plain hairline type="info"  @click="goBorder">1px</van-button>
       </div>
   </div>
 </template>

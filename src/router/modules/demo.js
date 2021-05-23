@@ -13,7 +13,7 @@ export default [
  
   {
     path: '/demo/key',
-    name: '使用index做key',
+    name: '使用index做key的bug',
     component: _import('demo/key')
   },
   {
@@ -28,7 +28,7 @@ export default [
   },
   {
     path: '/demo/route-children',
-    name: '嵌套路由',
+    name: '嵌套路由不设置默认显示页面',
     component: _import('demo/route-children'),
     children: [
       {
@@ -44,7 +44,7 @@ export default [
   },
   {
     path: '/demo/route-children-tab',
-    name: '嵌套路由',
+    name: '嵌套路由设置默认显示页面',
     component: _import('demo/route-children-tab'),
     redirect : '/demo/route-children-tab/a',
     children: [
@@ -59,7 +59,12 @@ export default [
     ]
     
   },
-  
+  {
+    path: '/demo/modal',
+    name: 'modal',
+    component: _import('demo/modal')
+    
+  }  
  
 ]
 
