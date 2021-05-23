@@ -1,4 +1,5 @@
-# vue-analytics
+# vue-demo
+vue demo
 
 ## Project setup
 ```
