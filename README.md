@@ -1,5 +1,5 @@
 # vue-demo
-vue demo
+vue 示例项目
 
 ## Project setup
 ```
