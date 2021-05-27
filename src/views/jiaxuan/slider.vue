@@ -78,9 +78,13 @@
 
 <script>
 /**引入swiper */
-import Swiper from "swiper/dist/js/swiper.js";
-import "swiper/dist/css/swiper.min.css";
+// import Swiper from "swiper/dist/js/swiper.js";
+// import "swiper/dist/css/swiper.min.css";
 
+ // import Swiper JS
+  import Swiper from 'swiper';
+  // import Swiper styles
+  import 'swiper/swiper-bundle.css';
 export default {
   name: "home",
   data() {
@@ -193,12 +197,13 @@ export default {
               _self.$refs.bottomLayerWrapper.style.background = newBackground;
             }
           },
-          touchStart(event) {
+          touchStart(swiper,event) {
+          
             const touches = event.targetTouches[0];
             touchStartX = touches.pageX; //记录触摸起点
           },
           //slider 滑动开始时背景色就开始变化 变换透明度，从0.3开始
-          sliderMove(event) {
+          sliderMove(swiper,event) {
             const endTouches = event.targetTouches[0];
             let touchEndX = endTouches.pageX;
             const curSliderIndex = +event.srcElement.parentNode.getAttribute(
