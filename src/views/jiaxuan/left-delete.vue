@@ -1,16 +1,16 @@
 <template>
   <div class="following-shops-wrap">
     <left-delete @del-click = "unfollow">
-      <div class="following-shops-item-wrap border-box flex-container">
-        <div class="following-shops-item flex-container flex-item-avg">
-          <div class="img-wrap border-box">
+      <div class="following-shops-item-wrap ">
+        <div class="following-shops-item">
+          <div class="img-wrap ">
             <img src="//img.souche.com/5F1DF224-F5B4-477A-935B-880F93DA9997.jpg" />
           </div>
-          <div class="content-wrap border-box">
+          <div class="content-wrap">
             <h1>大搜车车行</h1>
             <p class="info">浙江省杭州市余杭区五常大道丰岭路26号</p>
 
-            <div class="shop-info-wrap flex-container">
+            <div class="shop-info-wrap ">
               <div class="grayed">在售11辆</div>
               <div class="grayed">11米</div>
             </div>
@@ -20,16 +20,16 @@
     </left-delete>
 
      <left-delete @del-click = "unfollow">
-      <div class="following-shops-item-wrap border-box flex-container">
-        <div class="following-shops-item flex-container flex-item-avg">
-          <div class="img-wrap border-box">
+      <div class="following-shops-item-wrap ">
+        <div class="following-shops-item">
+          <div class="img-wrap ">
             <img src="//img.souche.com/5F1DF224-F5B4-477A-935B-880F93DA9997.jpg" />
           </div>
-          <div class="content-wrap border-box">
+          <div class="content-wrap ">
             <h1>大搜车车行</h1>
             <p class="info">浙江省杭州市余杭区五常大道丰岭路26号</p>
 
-            <div class="shop-info-wrap flex-container">
+            <div class="shop-info-wrap">
               <div class="grayed">在售11辆</div>
               <div class="grayed">11米</div>
             </div>
@@ -68,25 +68,13 @@ export default {
 @detail-color: #8d8e99;
 @item-border-color: #eee;
 @highlight-color: #5e5e66;
-.no-border {
-  border-color: transparent !important;
-}
 
-.flex-container {
-    display: flex;
-}
-
-.flex-item-avg {
-    flex: 1;
-}
-
-.border-box {
-    box-sizing: border-box;
-}
 
 .following-shops-item-wrap {
+  display: flex;
   position: relative;
   padding-left: 16px;
+   box-sizing: border-box;
  
   .closed {
     opacity: 0.5;
@@ -95,6 +83,8 @@ export default {
     color: @detail-color !important;
   }
   .following-shops-item {
+    display:flex;
+    flex: 1;
     padding: 16px 16px 16px 0;
     border-bottom: 0.5px solid @item-border-color;
   
@@ -103,6 +93,7 @@ export default {
       height: 81px;
       flex: 0 0 108px;
       overflow: hidden;
+       box-sizing: border-box;
       & > img {
         width: 108px;
         height: 81px;
@@ -115,6 +106,7 @@ export default {
     .content-wrap {
       flex: 1;
       margin: 0 0 0 10px;
+       box-sizing: border-box;
 
       & > h1 {
         color: #1a1d33;
@@ -154,6 +146,7 @@ export default {
         }
       }
       .shop-info-wrap {
+        display: flex;
         font-size: 13px;
         justify-content: space-between;
         align-items: center;
@@ -169,10 +162,6 @@ export default {
   }
 }
 
-.following-shops-item-wrap.no-border {
-  .following-shops-item {
-    border-bottom: none;
-  }
-}
+
 </style>
 
