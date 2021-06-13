@@ -18,32 +18,11 @@
         />
         <span class="search-tip">{{ searchText }}</span>
       </div>
-      <!--这一段必须要有，用于解决ios手机scroll事件触发低频问题-->
-      <input class="test-input" v-model="curOpacityRate" />
     </div>
     <!--顶部样式-->
     <div class="top-wrapper">
       <div class="bg-wrapper bottom-layer" ref="bottomLayerWrapper"></div>
       <div class="bg-wrapper" ref="topWrapper"></div>
-
-      <div
-        class="search-content search-hidden"
-        :class="{ 'lighter-search-content': lighterSearch }"
-        ref="searchbarHiddenFlow"
-      >
-        <div class="city-box">
-          <span class="city-name">杭州</span>
-          <span class="city-icon"></span>
-        </div>
-        <div class="search-box">
-          <img
-            class="search-icon"
-            src="//img.souche.com/f2e/c780877cbb1aedab9c1d3a154ee15562.png"
-            alt="search"
-          />
-          <span class="search-tip">{{ searchText }}</span>
-        </div>
-      </div>
 
       <div class="banner-wrapper" ref="avatar">
         <div
@@ -55,8 +34,8 @@
             <div
               class="swiper-slide"
               :class="{
-                                'swiper-no-swiping': homePage.length == 1
-                            }"
+                'swiper-no-swiping': homePage.length == 1,
+              }"
               :key="index"
               v-for="(item, index) in homePage"
             >
@@ -65,7 +44,10 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <div v-else class="banner-content swiper-container banner-default-bg"></div>
+        <div
+          v-else
+          class="banner-content swiper-container banner-default-bg"
+        ></div>
       </div>
     </div>
     <div class="space">1111</div>
@@ -77,14 +59,18 @@
 </template>
 
 <script>
-/**引入swiper */
+/**
+
+引入swiper  
+*/
 // import Swiper from "swiper/dist/js/swiper.js";
 // import "swiper/dist/css/swiper.min.css";
 
- // import Swiper JS
-  import Swiper from 'swiper';
-  // import Swiper styles
-  import 'swiper/swiper-bundle.css';
+// import Swiper JS
+import Swiper from "swiper";
+// import Swiper styles
+import "swiper/swiper-bundle.css";
+
 export default {
   name: "home",
   data() {
@@ -94,10 +80,9 @@ export default {
       homePage: [], //首页轮播
       curOpacityRate: "", //当前透明度
       start_y: "", //touch时的起始纵坐标
-      searchText: "大搜车家选" //搜索栏文字
+      searchText: "大搜车家选", //搜索栏文字
     };
   },
-
 
   methods: {
     //顶部搜索栏特效
@@ -134,12 +119,12 @@ export default {
         ? {
             delay: 3000,
             stopOnLastSlide: false,
-            disableOnInteraction: false
+            disableOnInteraction: false,
           }
         : false;
       let pagination = isShowPagination
         ? {
-            el: ".swiper-pagination"
+            el: ".swiper-pagination",
           }
         : {};
       if (_self.homePage.length == 1) {
@@ -170,40 +155,29 @@ export default {
           slideChangeTransitionStart() {
             let index = this.realIndex; //this 指向swiper
             let newBackground = _self.homePage[index].color;
-            if (_self.$refs.topWrapper) {
-              _self.$refs.topWrapper.style.background = newBackground;
-              _self.$refs.topWrapper.style.opacity = 1;
-            }
+            _self.$refs.topWrapper.style.background = newBackground;
+            _self.$refs.topWrapper.style.opacity = 1;
           },
           slideChangeTransitionEnd() {
             let index = this.realIndex; //this 指向swiper
             let newBackground = _self.homePage[index].color;
-            if (_self.$refs.topWrapper) {
-              _self.$refs.topWrapper.style.background = newBackground;
-              _self.$refs.topWrapper.style.opacity = 1;
-            }
-            if (_self.$refs.bottomLayerWrapper) {
-              _self.$refs.bottomLayerWrapper.style.background = newBackground;
-            }
+            _self.$refs.topWrapper.style.background = newBackground;
+            _self.$refs.topWrapper.style.opacity = 1;
+            _self.$refs.bottomLayerWrapper.style.background = newBackground;
           },
           touchEnd() {
             let index = this.realIndex;
             let newBackground = _self.homePage[index].color;
-            if (_self.$refs.topWrapper) {
-              _self.$refs.topWrapper.style.background = newBackground;
-              _self.$refs.topWrapper.style.opacity = 1;
-            }
-            if (_self.$refs.bottomLayerWrapper) {
-              _self.$refs.bottomLayerWrapper.style.background = newBackground;
-            }
+            _self.$refs.topWrapper.style.background = newBackground;
+            _self.$refs.topWrapper.style.opacity = 1;
+            _self.$refs.bottomLayerWrapper.style.background = newBackground;
           },
-          touchStart(swiper,event) {
-          
+          touchStart(swiper, event) {
             const touches = event.targetTouches[0];
             touchStartX = touches.pageX; //记录触摸起点
           },
           //slider 滑动开始时背景色就开始变化 变换透明度，从0.3开始
-          sliderMove(swiper,event) {
+          sliderMove(swiper, event) {
             const endTouches = event.targetTouches[0];
             let touchEndX = endTouches.pageX;
             const curSliderIndex = +event.srcElement.parentNode.getAttribute(
@@ -223,15 +197,12 @@ export default {
             let slideDiff = Math.abs(touchEndX - touchStartX); //滑动距离
             let slidePercent = slideDiff / sliderWidth;
             let newBackground = _self.homePage[toBeDisplayedIndex].color;
-            if (_self.$refs.topWrapper) {
-              _self.$refs.topWrapper.style.background = newBackground;
-              _self.$refs.topWrapper.style.opacity = slidePercent;
-            }
-          }
-        }
+            _self.$refs.topWrapper.style.background = newBackground;
+            _self.$refs.topWrapper.style.opacity = slidePercent;
+          },
+        },
       });
       this.serviceSwiper.update(); //更新slider
-      //首页banner的跳转地址需要后台配置
       this.serviceSwiper.slides.on("click", this.goToBannerDetail, true); //兼容IOS手机和android手机
     },
 
@@ -241,81 +212,31 @@ export default {
     },
 
     //获取banner列表，对接春娇
-    //跳转地址链接和图片地址 都支持http和https协议，但是返回的都是http
     getBannerListByPosition() {
       this.serviceSwiper && this.serviceSwiper.destroy();
       this.homePage = [
         {
           imgUrl: " //img.souche.com/f2e/f851e1d3f5533a33d9aabed84004bd07.png",
-          color: "#bd1923"
+          color: "#bd1923",
         },
         {
           imgUrl:
             "http://img.souche.com/20200113/jpg/f5f30a3cff9325d95e5f6a81a56ecbd9.jpg",
 
-          color: "blue"
+          color: "blue",
         },
         {
           imgUrl: " //img.souche.com/f2e/f851e1d3f5533a33d9aabed84004bd07.png",
-          color: "black"
-        }
+          color: "black",
+        },
       ];
 
-     // nextTick 应用：echarts画图，swiper初始化数据
+      // nextTick 应用：echarts画图，swiper初始化数据
       this.$nextTick(() => {
         // 下一个UI帧再初始化swiper
         this.initServiceSwiper();
       });
     },
-
-    //获取状态栏及刘海高度
-    // getBarHeight () {
-    //     if (Tower.app && this.isAndroid()) {
-    //         Tower.agreement(DST.GET_STATUS_BAR, null, res => {
-    //             //isNotchScreen 是否是刘海屏手机
-    //             //statusBarHeight 状态栏高度或刘海屏高度
-    //             this.$refs.searchbarInFlow.style.paddingTop =
-    //                 res.statusBarHeight + "px";
-    //             this.$refs.searchbarHiddenFlow.style.paddingTop =
-    //                 res.statusBarHeight + "px";
-    //             this.$refs.avatar.style.paddingTop =
-    //                 72 + res.statusBarHeight - 20 + "px";
-    //             //刘海屏
-    //             this.$refs.topWrapper.style.height =
-    //                 193.5 + res.statusBarHeight - 20 + "px";
-    //         });
-    //     }
-    // },
-
-    //修复顶部下拉刷新时，搜索框消失的bug
-    //如果只使用一个fixed定位的搜索框，那么在执行下拉刷新的操作时，该搜索框会消失
-    //因此需要添加一个absolute定位的搜索框，且它只在下拉刷新的时候出现
-    pullRefresh() {
-      const { searchbarInFlow, searchbarHiddenFlow } = this.$refs;
-      document.addEventListener("touchstart", event => {
-        let touch = event.targetTouches[0]; //获取第一个触点
-        this.start_y = Number(touch.pageY); //第一个触点的Y坐标
-      });
-
-      document.addEventListener("touchmove", event => {
-        let scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        //处于页面顶部时下拉刷新才起作用
-        if (scrollTop <= 0) {
-          let touch = event.targetTouches[0]; //获取第一个触点
-          //获取手指向下移动的长度距离
-          let end_y = Number(touch.pageY) - this.start_y;
-          if (end_y > 5) {
-            //防止手误操作
-            searchbarInFlow.style.opacity = 0;
-            searchbarHiddenFlow.style.opacity = 1;
-          }
-        } else {
-          searchbarInFlow.style.opacity = 1;
-          searchbarHiddenFlow.style.opacity = 0;
-        }
-      });
-    }
   },
 
   //页面销毁时 删除滚动条监听事件
@@ -326,10 +247,9 @@ export default {
   },
   mounted() {
     this.subscribeScroll(); //监听滚动条滚动事件
-    this.pullRefresh(); //下拉刷新
-    //this.getBarHeight(); //调用协议获取安卓手机状态栏高度，兼容安卓刘海屏手机
+    //this.getBarHeight(); // 安卓刘海屏手机的处理方式：调用协议获取状态栏及刘海高度，再修改css样式
     this.getBannerListByPosition();
-  }
+  },
 };
 </script>
 
@@ -341,26 +261,14 @@ export default {
   }
 
   .banner-wrapper {
-    padding-top: calc(72px + env(safe-area-inset-top) - 20px) !important;
-    padding-top: calc(72px + const(safe-area-inset-top) - 20px) !important;
+    padding-top: calc(72px + env(safe-area-inset-top)) !important;
+    padding-top: calc(72px + const(safe-area-inset-top)) !important;
   }
   .bg-wrapper {
-    height: calc(193.5px + env(safe-area-inset-top) - 20px) !important;
+    height: calc(193.5px + env(safe-area-inset-top)) !important;
   }
 }
 
-/*
-修复顶部搜索栏在IOS手机上的样式bug 滚动时颜色会突然变白
-位置移到输入框处，防止点击它调起输入法（森刚手机会）
-*/
-.test-input {
-  position: fixed;
-  top: 26px;
-  left: 100px;
-  width: 10px;
-  height: 0;
-  opacity: 0;
-}
 .pg-home-wrapper {
   width: 100%;
   overflow: hidden;
